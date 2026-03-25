@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-zinc-900 dark:bg-black dark:text-zinc-100 font-sans antialiased transition-colors duration-300;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/20 text-zinc-950 dark:text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-zinc-100 dark:bg-zinc-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-zinc-300 dark:bg-zinc-700;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-400 dark:bg-zinc-600;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.zinc.300') theme('colors.zinc.100');
+  }
+
+  .dark * {
+    scrollbar-color: theme('colors.zinc.700') theme('colors.zinc.900');
+  }
+}
+
+@layer utilities {
+  .glass-header {
+    @apply bg-white/60 backdrop-blur-xl dark:bg-zinc-950/70;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 30px rgba(79, 70, 229, 0.08);
+  }
+
+  .surface-card {
+    @apply border border-white/70 bg-white/78 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/76;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
